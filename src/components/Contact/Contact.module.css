@@ -7,6 +7,11 @@
     border-top: 3px solid hsl(180, 62%, 55%);
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: transform .2s ease-in-out;
+}
+
+.contact:hover {
+    transform: scale(1.03);
 }
 
 .contact-name {
