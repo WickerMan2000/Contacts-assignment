@@ -3,14 +3,15 @@ import image from '../../images/icon-supervisor.svg';
 import ReactDOM from "react-dom";
 import { Fragment, useState } from 'react';
 import { Modal } from '../Modal/Modal';
+import { IContact } from '../../types/types';
 
-export const BackDrop = ({ onClick, show }: { onClick: any, show: any }) => {
+export const BackDrop = ({ onClick, show }: { onClick: React.MouseEventHandler, show: boolean }) => {
     return (
-      <div className={show && styles.backdrop} onClick={onClick}></div>
+      <div className={show ? styles.backdrop : ''} onClick={onClick}></div>
     );
 };
 
-export const Contact = (props: any) => {
+export const Contact = (props: IContact) => {
     const { name: nameOfUser, email, company: { name } } = props;
 
     const [clicked, setClicked] = useState(false);
@@ -27,11 +28,9 @@ export const Contact = (props: any) => {
             {ReactDOM.createPortal(
                 <BackDrop
                     show={clicked}
-                    onClick={() => {
-                        setClicked(prevState => !prevState);
-                    }}
-                    />,
-                    (document as any).getElementById("backdrop-root")
+                    onClick={() => setClicked(prevState => !prevState)}
+                />,
+                document.getElementById("backdrop-root")!
             )}
         </Fragment>
     )

@@ -1,6 +1,7 @@
+import { IContact } from "../../types/types";
 import styles from "./Modal.module.css";
 
-export const Modal = ({ onClick, details }: { onClick: any, details: any }) => {
+export const Modal = ({ onClick, details }: { onClick: React.MouseEventHandler, details: IContact }) => {
     const { name: nameOfUser, username, company: { name }, phone, email, website, address: { street, city, suite } } = details;
 
     return (
