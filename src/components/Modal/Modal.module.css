@@ -1,6 +1,6 @@
 .contact-modal {
     width: 50%;
-    height: 35%;
+    height: 40%;
     position: fixed;
     background-color: white;
     border-radius: 6px;
@@ -222,6 +222,21 @@ p {
         left: 15%;
         top: 8%;
         transform: translate(-50%, -50%);
+    }
+
+    .contact-modal-name {
+        position: absolute;
+        top: 15px;
+        left: 30px;
+        font-size: 25px;
+    }
+    
+    .contact-modal-company {
+        position: absolute;
+        top: 50px;
+        left: 30px;
+        font-size: 20px;
+        font-weight: 400;
     }
 
     .close-modal-btn {

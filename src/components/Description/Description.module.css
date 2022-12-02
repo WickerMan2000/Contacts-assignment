@@ -1,0 +1,32 @@
+.description {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.languages {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.title {
+    display: block;
+    font-weight: 900;
+}
+
+.info {
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 750px) {
+    .info {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .info {
+        width: 90%;
+    }
+}
