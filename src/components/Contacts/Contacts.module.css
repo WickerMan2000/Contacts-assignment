@@ -1,0 +1,21 @@
+.contacts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    gap: 1.2em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 750px) {
+    .contacts-container {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .contacts-container {
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+    }
+}
