@@ -1,12 +1,12 @@
 .contact-modal {
-    width: 60%;
-    height: 70%;
+    width: 50%;
+    height: 35%;
     position: fixed;
     background-color: white;
     border-radius: 6px;
     z-index: 3000;
-    top: 15%;
-    left: 20%;
+    top: 10%;
+    left: 25%;
     transform: translate(-50%, 0);
     overflow: hidden;
     font-weight: 700;
@@ -26,49 +26,74 @@
     }
 }
 
+p {
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
 .upper-layer {
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 45%;
     background-color: rgb(251, 248, 248);
+    overflow-wrap: break-word;
 }
 
 .contact-modal-name {
     position: absolute;
-    top: 50px;
-    left: 60px;
+    top: 30px;
+    left: 30px;
     font-size: 25px;
 }
 
 .contact-modal-company {
     position: absolute;
-    top: 90px;
-    left: 60px;
+    top: 70px;
+    left: 30px;
     font-size: 20px;
+    font-weight: 400;
 }
 
 .bottom-layer {
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 55%;
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(2, 50%);
     font-size: large;
-    padding-top: 50px;
+    padding-top: 5px;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 950px) {
+    .bottom-layer {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(4, 25%);
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .bottom-layer {
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: repeat(8, 12.5%);
+    }
 }
 
 .user-name-wrapper {
     grid-column-start: 1;
     grid-column-end: 2;
-    margin-left: 80px;
+    overflow-wrap: break-word;
+    margin-left: 40px;
 }
 
 .address-wrapper {
     grid-column-start: 2;
     grid-column-end: 3;
-    margin-top: 0px;
     margin-left: 10px;
+    overflow-wrap: break-word;
 }
 
 .contact-address {
@@ -81,6 +106,7 @@
     grid-column-start: 3;
     grid-column-end: 4;
     margin-left: 10px;
+    overflow-wrap: break-word;
 }
 
 .email-wrapper {
@@ -91,6 +117,8 @@
     display: inline-block;
     max-width: min-content;
     margin-left: 10px;
+    overflow-wrap: break-word;
+    overflow: visible;
 }
 
 .website-wrapper {
@@ -99,6 +127,7 @@
     grid-row-start: 2;
     grid-row-end: 3;
     margin-left: 10px;
+    overflow-wrap: break-word;
 }
 
 .close-modal-btn {
@@ -111,6 +140,168 @@
     top: 45px;
     right: 20px;
     background-color: inherit;
-    font-size: xx-large;
-    font-weight: 400;
+    font-size: large;
+    font-weight: 900;
+    color: grey;
+    text-align: center;
+}
+
+@media only screen and (max-width: 950px) {
+    .contact-modal {
+        height: 60%;
+    }
+
+    .upper-layer {
+        height: 35%;
+    }
+
+    .bottom-layer {
+        height: 65%;
+    }
+
+    .user-name-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        overflow-wrap: break-word;
+        margin-left: 40px;
+    }
+    
+    .address-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 40px;
+        overflow-wrap: break-word;
+    }
+
+    .contact-address {
+        list-style: none;
+        margin-top: 2px;
+        padding-left: 0px;
+    }
+    
+    .phone-wrapper {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: 10px;
+        overflow-wrap: break-word;
+    }
+    
+    .email-wrapper {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        display: inline-block;
+        max-width: min-content;
+        margin-left: 10px;
+        overflow-wrap: break-word;
+        overflow: visible;
+    }
+    
+    .website-wrapper {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        margin-left: 10px;
+        overflow-wrap: break-word;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .contact-modal {
+        height: 80%;
+        width: 70%;
+        position: fixed;
+        left: 15%;
+        top: 8%;
+        transform: translate(-50%, -50%);
+    }
+
+    .close-modal-btn {
+        cursor: pointer;
+        border: 0px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        background-color: inherit;
+    }
+
+    .upper-layer {
+        position: relative;
+        width: 100%;
+        height: 25%;
+        background-color: rgb(251, 248, 248);
+    }
+
+    .bottom-layer {
+        display: grid;
+        height: 75%;
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: repeat(8, 12.5%);
+    }
+
+    .user-name-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        overflow-wrap: break-word;
+        margin-left: 40px;
+    }
+    
+    .address-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        margin-left: 40px;
+        overflow-wrap: break-word;
+    }
+
+    .contact-address {
+        list-style: none;
+        margin-top: 2px;
+        padding-left: 0px;
+    }
+    
+    .phone-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        margin-left: 40px;
+        overflow-wrap: break-word;
+    }
+    
+    .email-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        display: inline-block;
+        max-width: min-content;
+        margin-left: 40px;
+        overflow-wrap: break-word;
+        overflow: visible;
+    }
+    
+    .website-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 6;
+        grid-row-end: 7;
+        margin-left: 40px;
+        overflow-wrap: break-word;
+    }
 }
