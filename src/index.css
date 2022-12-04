@@ -5,6 +5,7 @@ body {
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: hsl(0, 0%, 98%);
 }
 
 code {
