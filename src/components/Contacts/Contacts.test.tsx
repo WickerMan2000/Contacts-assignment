@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, within } from '@testing-library/react';
 import { mockedContacts } from '../../__mocks__/mock.data';
 import { Contacts } from './Contacts';
 
@@ -12,6 +12,8 @@ const mockFetch = jest.fn(({ body }) => {
         resolve(true);
     });
 });
+
+const waitFn = async () => await new Promise((resolve) => setTimeout(resolve, 1000));
 
 global.fetch = mockFetch as jest.Mock;
 
@@ -52,8 +54,9 @@ describe('Contacts', () => {
             expect(queryByTestId('test-modal')).not.toBeInTheDocument();
     
             const contacts = await findAllByTestId(/contact-test/i);
+            const magnifier = within(contacts[0]).getByAltText('magnifier');
     
-            fireEvent.click(contacts[0]);
+            fireEvent.click(magnifier);
     
             const modal = getByTestId('test-modal');
             const clickBtn = getByTestId('test-modal-close-btn');
@@ -71,8 +74,9 @@ describe('Contacts', () => {
             expect(queryByTestId('test-modal')).not.toBeInTheDocument();
     
             const contacts = await findAllByTestId(/contact-test/i);
+            const magnifier = within(contacts[0]).getByAltText('magnifier');
     
-            fireEvent.click(contacts[0]);
+            fireEvent.click(magnifier);
     
             const modal = getByTestId('test-modal');
     
@@ -86,6 +90,25 @@ describe('Contacts', () => {
             expect(getByTestId('test-modal-phone').textContent).toBe('1-770-736-8031 x56442');
             expect(getByTestId('test-modal-email').textContent).toBe('Sincere@april.biz');
             expect(getByTestId('test-modal-website').textContent).toBe('hildegard.org');
+        });
+    
+        xit('should check if backdrop is clicked, the modal unmounts', async () => {
+            const { findAllByTestId, queryByTestId, getByTestId, getAllByTestId } = render(<Contacts />);
+    
+            expect(queryByTestId('test-modal')).not.toBeInTheDocument();
+    
+            const contacts = await findAllByTestId(/contact-test/i);
+    
+            fireEvent.click(contacts[0]);
+
+            const modal = getByTestId('test-modal');
+            const backdrop = getAllByTestId('test-backdrop')[0];
+
+            expect(modal).toBeInTheDocument();
+    
+            fireEvent.click(backdrop);
+    
+            expect(modal).not.toBeInTheDocument();
         });
     });
 
@@ -102,7 +125,7 @@ describe('Contacts', () => {
 
             const { queryAllByTestId } = render(<Contacts />);
 
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await waitFn();
 
             const contacts = queryAllByTestId(/contact-test/i);
 

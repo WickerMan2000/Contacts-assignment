@@ -20,12 +20,12 @@ export const Contact = (props: IContact) => {
 
     return (
         <Fragment>
-            <div className={styles.contact} onClick={click(prevState => !prevState)} data-testid={`contact-test-${id}`}>
+            <article className={styles.contact} data-testid={`contact-test-${id}`}>
                 <div data-testid={`contact-name-${id}`} className={styles['contact-name']}>{nameOfUser}</div>
                 <div data-testid={`contact-email-${id}`} className={styles['contact-email']}>{email}</div>
                 <div data-testid={`contact-company-${id}`} className={styles['contact-company']}>{name}</div>
-                <img className={styles['contact-image']} src={image} />
-            </div>
+                <img className={styles['contact-image']} onClick={click(prevState => !prevState)} src={image} alt="magnifier" />
+            </article>
             {isClicked && <Modal onClick={click(prevState => !prevState)} details={props} />}
             {ReactDOM.createPortal(
                 <BackDrop

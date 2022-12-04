@@ -5,7 +5,7 @@ export const Modal = ({ onClick, details }: { onClick: React.MouseEventHandler, 
     const { name: nameOfUser, username, company: { name }, phone, email, website, address: { street, city, suite } } = details;
 
     return (
-        <div className={styles["contact-modal"]} data-testid="test-modal">
+        <article className={styles["contact-modal"]} data-testid="test-modal">
             <div className={styles["upper-layer"]}>
                 <div data-testid="test-modal-name" className={styles["contact-modal-name"]}>{nameOfUser}</div>
                 <div data-testid="test-modal-company" className={styles["contact-modal-company"]}>{name}</div>
@@ -37,6 +37,6 @@ export const Modal = ({ onClick, details }: { onClick: React.MouseEventHandler, 
                 </div>
             </div>
             <button data-testid="test-modal-close-btn" className={styles["close-modal-btn"]} onClick={onClick}>X</button>
-        </div>
+        </article>
     );
 };
