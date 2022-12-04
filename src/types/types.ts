@@ -22,3 +22,5 @@ export type Company = {
     catchPhrase: string;
     name: string;
 };
+
+export type BooleanFn = (state: boolean) => boolean;

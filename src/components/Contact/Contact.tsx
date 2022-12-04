@@ -3,7 +3,7 @@ import image from '../../images/icon-supervisor.svg';
 import ReactDOM from "react-dom";
 import { Fragment, useState } from 'react';
 import { Modal } from '../Modal/Modal';
-import { IContact } from '../../types/types';
+import { BooleanFn, IContact } from '../../types/types';
 
 export const BackDrop = ({ onClick, show }: { onClick: React.MouseEventHandler, show: boolean }) => {
     return (
@@ -14,21 +14,23 @@ export const BackDrop = ({ onClick, show }: { onClick: React.MouseEventHandler, 
 export const Contact = (props: IContact) => {
     const { name: nameOfUser, email, company: { name }, id } = props;
 
-    const [clicked, setClicked] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
+    const click = (boolFn: BooleanFn) => () => setIsClicked(boolFn);
 
     return (
         <Fragment>
-            <div className={styles.contact} onClick={() => setClicked(prevState => !prevState)} data-testid={`contact-test-${id}`}>
+            <div className={styles.contact} onClick={click(prevState => !prevState)} data-testid={`contact-test-${id}`}>
                 <div data-testid={`contact-name-${id}`} className={styles['contact-name']}>{nameOfUser}</div>
                 <div data-testid={`contact-email-${id}`} className={styles['contact-email']}>{email}</div>
                 <div data-testid={`contact-company-${id}`} className={styles['contact-company']}>{name}</div>
                 <img className={styles['contact-image']} src={image} />
             </div>
-            {clicked && <Modal onClick={() => setClicked(prevState => !prevState)} details={props} />}
+            {isClicked && <Modal onClick={click(prevState => !prevState)} details={props} />}
             {ReactDOM.createPortal(
                 <BackDrop
-                    show={clicked}
-                    onClick={() => setClicked(prevState => !prevState)}
+                    show={isClicked}
+                    onClick={click(prevState => !prevState)}
                 />,
                 document.getElementById("backdrop-root")!
             )}
