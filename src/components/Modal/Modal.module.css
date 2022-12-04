@@ -54,6 +54,16 @@ p {
     font-weight: 400;
 }
 
+@media only screen and (max-width: 400px) {
+    .contact-modal-name {
+        font-size: 20px;
+    }
+
+    .contact-modal-company {
+        font-size: 15px;
+    }
+}
+
 .bottom-layer {
     position: relative;
     width: 100%;
@@ -61,25 +71,9 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(2, 50%);
-    font-size: large;
+    font-size: medium;
     padding-top: 5px;
     font-weight: 400;
-}
-
-@media only screen and (max-width: 950px) {
-    .bottom-layer {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
-        grid-template-rows: repeat(4, 25%);
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    .bottom-layer {
-        display: grid;
-        grid-template-columns: repeat(1, 100%);
-        grid-template-rows: repeat(8, 12.5%);
-    }
 }
 
 .user-name-wrapper {
@@ -130,6 +124,10 @@ p {
     overflow-wrap: break-word;
 }
 
+.website-wrapper > p {
+    margin-top: 7px;
+}
+
 .close-modal-btn {
     cursor: pointer;
     border: 0px;
@@ -157,6 +155,9 @@ p {
 
     .bottom-layer {
         height: 65%;
+        display: grid;
+        grid-template-columns: repeat(3, 33.3%);
+        grid-template-rows: repeat(2, 50%);
     }
 
     .user-name-wrapper {
@@ -169,11 +170,10 @@ p {
     }
     
     .address-wrapper {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        margin-left: 40px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
         overflow-wrap: break-word;
     }
 
@@ -184,33 +184,32 @@ p {
     }
     
     .phone-wrapper {
-        grid-column-start: 2;
-        grid-column-end: 3;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 1;
         grid-row-end: 2;
-        margin-left: 10px;
         overflow-wrap: break-word;
     }
     
     .email-wrapper {
-        grid-column-start: 2;
-        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 3;
         display: inline-block;
         max-width: min-content;
-        margin-left: 10px;
         overflow-wrap: break-word;
         overflow: visible;
+        margin-left: 40px;
     }
     
     .website-wrapper {
         grid-column-start: 2;
         grid-column-end: 3;
-        grid-row-start: 3;
-        grid-row-end: 4;
-        margin-left: 10px;
+        grid-row-start: 2;
+        grid-row-end: 3;
         overflow-wrap: break-word;
+        margin-top: 10px;
     }
 }
 
@@ -228,14 +227,14 @@ p {
         position: absolute;
         top: 15px;
         left: 30px;
-        font-size: 25px;
+        font-size: 22px;
     }
     
     .contact-modal-company {
         position: absolute;
         top: 50px;
         left: 30px;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 400;
     }
 

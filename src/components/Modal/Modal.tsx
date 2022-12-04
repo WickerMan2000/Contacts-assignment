@@ -36,7 +36,7 @@ export const Modal = ({ onClick, details }: { onClick: React.MouseEventHandler, 
                     <div data-testid="test-modal-website">{website}</div>
                 </div>
             </div>
-            <button data-testid="test-modal-close-btn" className={styles["close-modal-btn"]} onClick={onClick}>X</button>
+            <button type="button" data-testid="test-modal-close-btn" className={styles["close-modal-btn"]} onClick={onClick}>X</button>
         </article>
     );
 };
