@@ -19,19 +19,11 @@ global.fetch = mockFetch as jest.Mock;
 
 describe('Contacts', () => {
     describe('Successful data fetching', () => {
-        beforeAll(() => {
-            (ReactDOM as any).createPortal = jest.fn((node) => node);
-        })
-    
         beforeEach(() => {
             (fetch as jest.Mock).mockImplementation(() => ({
                 ok: true,
                 json: () => Promise.resolve(mockedContacts)
             }));
-        });
-    
-        afterEach(() => {
-           (ReactDOM.createPortal as jest.Mock).mockClear()
         });
     
         it('should render contacts component with the appropriate info', async () => {
@@ -92,14 +84,15 @@ describe('Contacts', () => {
             expect(getByTestId('test-modal-website').textContent).toBe('hildegard.org');
         });
     
-        xit('should check if backdrop is clicked, the modal unmounts', async () => {
+        it('should check if backdrop is clicked, the modal unmounts', async () => {
             const { findAllByTestId, queryByTestId, getByTestId, getAllByTestId } = render(<Contacts />);
     
             expect(queryByTestId('test-modal')).not.toBeInTheDocument();
     
             const contacts = await findAllByTestId(/contact-test/i);
+            const magnifier = within(contacts[0]).getByAltText('magnifier');
     
-            fireEvent.click(contacts[0]);
+            fireEvent.click(magnifier);
 
             const modal = getByTestId('test-modal');
             const backdrop = getAllByTestId('test-backdrop')[0];
